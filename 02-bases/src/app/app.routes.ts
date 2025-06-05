@@ -1,3 +1,4 @@
+import { DragonballSuperComponent } from './pages/dragonball-super/dragonball-super.component';
 import { Routes } from '@angular/router';
 import { CounterPageComponent } from './pages/counter/counter-page.component';
 import { HeroComponent } from './pages/hero/hero.component';
@@ -15,6 +16,10 @@ export const routes: Routes = [
     {
         path:'dragonball',
         component: DragonballPageComponent
+    },
+     {
+        path:'dragonball-super',
+        component: DragonballSuperComponent
     },
     {
         path: '**',
