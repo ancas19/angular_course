@@ -14,9 +14,6 @@ import { CharacterAddComponent } from "../../components/dragonball/character-add
 export class DragonballSuperComponent {
 
   public dragonBallService = inject(DragonBallService);
-  addCharacter(character: Character) {
-    console.log(`Adding character: ${character.name} with power: ${character.power}`);
-    this.dragonBallService.addCharacter(character);
-  }
+
 
 }
