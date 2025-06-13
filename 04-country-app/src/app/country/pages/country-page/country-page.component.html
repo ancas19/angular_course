@@ -1,0 +1,14 @@
+<!------>
+@if(countryResource.error()){
+<not-found-error />
+}
+<!------>
+@if(countryResource.isLoading()){
+<section class="fixed inset-0 flex items-center justify-center bg-opacity-75 z-50">
+    <app-spinner />
+</section>
+}
+<!------>
+@if (countryResource.hasValue()) {
+    <country-information [countryInformation]="countryResource.value()"/>
+}
