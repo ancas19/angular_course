@@ -1,4 +1,8 @@
-<contry-search-input placeholder="Search by capital" (value)="query.set($event)" />
+<contry-search-input 
+placeholder="Search by capital" 
+[debounceTime]="1000" 
+(value)="query.set($event)" 
+/>
 <country-list 
 [countries]="countryResource.value()??[]" 
 [errorMessage]="countryResource.error()"
