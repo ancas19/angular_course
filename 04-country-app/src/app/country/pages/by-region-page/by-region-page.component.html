@@ -1,1 +1,17 @@
-<country-list [countries]="[]"/>
+<h3 class="text-lg">Pick a region</h3>
+<section class="row mt-2">
+    <div class="flex-col space-x-4">
+        @for (region of regions; track $index) {
+        <button 
+        class="btn btn-outline mr-2" 
+        [class.btn-active]="selectedRegion() === region" 
+        (click)="searchByRegion(region)">
+            {{ region | titlecase }}
+        </button>
+
+        }
+
+    </div>
+</section>
+<country-list [countries]="countryResources.value()??[]" [errorMessage]="countryResources.error()"
+    [isEmpty]="countryResources.value()?.length === 0" [isLoading]="countryResources.isLoading()" />

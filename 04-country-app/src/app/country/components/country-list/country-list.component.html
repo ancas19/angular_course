@@ -24,46 +24,45 @@
                     <img [src]="country.flagSvg" [alt]="country.name" class="w-10">
                 </td>
                 <td>
-                   {{country.name}} 
+                    {{country.name}}
                 </td>
                 <td>
                     {{country.capital}}
                 </td>
                 <td>
-                   <span class="badge badge-secondary">
-                     {{country.population | number }}
-                   </span>
+                    <span class="badge badge-secondary">
+                        {{country.population | number }}
+                    </span>
                 </td>
                 <td>
-                    <a class="link-primary cursor-pointer" [routerLink]="['/country/by', country.cca2]" routerLinkActive="router-link-active" >More information</a>
+                    <a class="link-primary cursor-pointer" [routerLink]="['/country/by', country.cca2]"
+                        routerLinkActive="router-link-active">More information</a>
                 </td>
             </tr>
             }
 
             @if(errorMessage()){
-                <tr>
-                    <td colspan="8" class="text-center">
-                        <h3>{{errorMessage()}}</h3>
-                    </td>
-                </tr>
+            <tr>
+                <td colspan="8" class="text-center">
+                    <h3>{{errorMessage()}}</h3>
+                </td>
+            </tr>
             }
 
             <!----->
             @if(countries().length === 0 && !isLoading()) {
-                <tr>
-                    <td colspan="8" class="text-center">
-                       There are no countries
-                    </td>
-                </tr>
+            <tr>
+                <td colspan="8" class="text-center">
+                    There are no countries
+                </td>
+            </tr>
             }
 
             <!----->
             @if(isLoading()){
-                <tr>
-                    <td colspan="8" class="text-center">
-                        Loading...
-                    </td>
-                </tr>
+            <section class="fixed inset-0 flex items-center justify-center bg-opacity-75 z-50">
+                <app-spinner />
+            </section>
             }
         </tbody>
     </table>

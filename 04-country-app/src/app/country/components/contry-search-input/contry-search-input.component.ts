@@ -1,4 +1,4 @@
-import { Component, effect, input, output, signal } from '@angular/core';
+import { Component, effect, input, linkedSignal, output, signal } from '@angular/core';
 
 @Component({
   selector: 'contry-search-input',
@@ -9,7 +9,9 @@ import { Component, effect, input, output, signal } from '@angular/core';
 export class ContrySearchInputComponent {
 
   value = output<string>();
-  inputValue = signal<string>('');
+
+  initialValue = input<string>('');
+  inputValue = linkedSignal<string>(() => this.initialValue() ?? '');
   placeholder = input<string>('Search');
   debounceTime = input<number>(500);
 

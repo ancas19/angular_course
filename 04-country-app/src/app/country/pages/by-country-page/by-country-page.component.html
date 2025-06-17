@@ -1,4 +1,5 @@
-<contry-search-input placeholder="Search by country" (value)="query.set($event)" />
+<contry-search-input placeholder="Search by country" (value)="query.set($event)"  
+[initialValue]="queryParam" />
 
 
 <country-list 
