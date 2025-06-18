@@ -1,0 +1,7 @@
+<ul class="menu menu-horizontal bg-base-200 rounded-box my-2">
+    @for (item of routes; track $index) {
+    <li>
+        <a [routerLink]="item.path" routerLinkActive="text-accent" >{{item.title}}</a>
+    </li>
+    }
+</ul>
