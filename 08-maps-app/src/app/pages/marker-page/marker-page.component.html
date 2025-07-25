@@ -1,1 +1,37 @@
-<p>marker-page works!</p>,
+<div #map class="h-[60vh] sm:h-[calc(100vh-64px)]"></div>
+
+<section class="h-[40vh] sm:fixed sm:w-[260px] bg-white sm:rounded sm:top-20 sm:left-10 p-5 overflow-y-scroll">
+    <h2 class="text-xl font-bold text-gray-800 mb-4">Marcadores</h2>
+    <div class="flex flex-col gap-2">
+        @for (marker of markers(); track marker.id) {
+        <div class="form-control"
+            (click)="flyToMarker(marker.mapboxMarker.getLngLat())"
+            (dblclick)="deleteMarker(marker)"
+        >
+            <label class="label cursor-pointer text-black text-xs p-2 hover:bg-gray-50 rounded">
+                <div class="flex-1 min-w-0 pr-2">
+                    <div class="space-y-1">
+                        <div class="text-xs text-gray-600">
+                            <span class="font-medium">Lat:</span>
+                            <span class="font-mono">{{marker.mapboxMarker.getLngLat().lat | number:'1.6-6'}}</span>
+                        </div>
+                        <div class="text-xs text-gray-600">
+                            <span class="font-medium">Lng:</span>
+                            <span class="font-mono">{{marker.mapboxMarker.getLngLat().lng | number:'1.6-6'}}</span>
+                        </div>
+                    </div>
+                </div>
+                <input type="radio" name="radio-10" class="radio"
+                    [style]="{ backgroundColor: marker.mapboxMarker._color }" checked="checked" />
+            </label>
+        </div>
+        } @empty {
+        <div class="flex justify-center items-center bg-blue-100 rounded py-5">
+            <p class="text-xs text-primary">
+                There are no markers
+            </p>
+        </div>
+        }
+
+    </div>
+</section>
