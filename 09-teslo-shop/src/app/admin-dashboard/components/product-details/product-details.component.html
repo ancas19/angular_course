@@ -137,8 +137,19 @@
       </button>
     </div>
 
-    <product-carousel [images]="product().images" />
+    <product-carousel [images]="imagesToCarousel()" />
 
-    <input type="file" class="file-input file-input-bordered w-full mt-4" />
+    <input type="file" multiple accept="images/*" class="file-input file-input-bordered w-full mt-4" (change)="onFileChanges($event)"/>
+    <div class="grid frid-cols-2 sm:grid-cols-4 gap-2">
+      @for (item of tempImages(); track item) {
+        <img [src]="item" alt="Temporal image" class="w-full object-cover rounded-2xl mt-2">
+      }
+    </div>
   </div>
 </form>
+
+@if(wasSaved()){
+<div class="alert alert-success fixed bottom-4 right-4 w-80 animate-fadeIn">
+  <span>Producto guardado o actualizado correctamente</span>
+</div>
+}
