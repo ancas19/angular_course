@@ -37,7 +37,7 @@
   </div>
   <div class="navbar-end gap-4">
     @if(authService.isAdmin()){}
-    <a routerLink="/admin" class="text-accent">Admin panel</a>6
+    <a routerLink="/admin" class="text-accent">Admin panel</a>
     @if(authService.authStatus() === 'authenticated') {
       <button class="btn btn-ghost">
         {{authService.user()?.fullName}}

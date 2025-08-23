@@ -70,14 +70,14 @@ export class ProductDetailsComponent implements OnInit {
     }
     if (this.product().id === 'new') {
       const product = await firstValueFrom(
-        this.productService.createProduct(productlike)
+        this.productService.createProduct(productlike, this.imageFileList)
       );
       this.router.navigate(['/admin/product', product.id]);
       this.wasSaved.set(true);
       this.showAlert();
       return;
     }
-    await firstValueFrom(this.productService.updateProduct(productlike, this.product().id ?? ''));
+    await firstValueFrom(this.productService.updateProduct(productlike, this.product().id ?? '', this.imageFileList));
     this.wasSaved.set(true);
     this.showAlert();
   }
